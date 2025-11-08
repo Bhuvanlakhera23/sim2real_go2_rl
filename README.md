@@ -1,4 +1,4 @@
-# Unitree Go2 – ROS2 + SDK2 + IsaacGym Integration Guide
+# Unitree Go2 – ROS2 + SDK2 Integration Guide
 This documentation walks through the complete setup for controlling a Unitree robot using ROS 2, Unitree SDK2 (Python), and Isaac Gym. It covers installation, communication setup, low- and high-level control, digital-twin simulation, and wireless operation.
 
 ---
