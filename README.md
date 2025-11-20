@@ -2,7 +2,7 @@
 This documentation walks through the complete setup for controlling a Unitree robot using ROS 2, Unitree SDK2 (Python), and Isaac Gym. It covers installation, communication setup, low- and high-level control, digital-twin simulation, and wireless operation.
 
 ---
-## 1. Add the Repository Signing Key (Required for go2 robots which have legacy systems)
+## 1. Add the Repository Signing Key (Required for go2 robots which have legacy systems) (This step is to be only done only once with the robot)
 ```bash
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
 ```
@@ -13,7 +13,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
 - **PC:** ROS 2 Humble (22.04)  
 - **Robot:** ROS 2 Foxy (20.04)
 
-### Install ROS 2 Humble (on PC)
+### Install ROS 2 Humble (on PC) (Do this step only if ROS 2 Humble is not there in your PC)
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install software-properties-common -y
@@ -40,7 +40,7 @@ sudo rosdep init
 rosdep update
 ```
 
-### Install ROS 2 Foxy (on Robot) 
+### Install ROS 2 Foxy (on Robot) (Do this step only if ROS 2 Foxy is not there on your Robot)
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install software-properties-common curl -y
@@ -63,7 +63,7 @@ source ~/.bashrc
 ros2 topic list
 ```
 
-## 3. Connect the Robot Wirelessly
+## 3. Connect the Robot Wirelessly (This step has to be done each time you connect the robot to a new network)
 
 ### Configure wifi on the robot
 ```bash
@@ -101,6 +101,11 @@ ip a show wlan0
 ping -c 3 8.8.8.8
 ```
 Now you should be able to connect to the robot wirelessly
+
+### SSH into the robot wirelessly
+```bash
+ssh unitree@10.40.53.233
+```
 
 ## 4. Fork and Install the Custom SDK
 
