@@ -122,8 +122,10 @@ Fork this unitree SDK onto your github account
 ```bash
 cd ~
 sudo apt install python3-pip
-git clone https://github.com/<your-username>/unitree_sdk2_python.git
+git clone [https://github.com/Project-Astrium/unitree_python_sdk.git](https://github.com/Project-Astrium/unitree_python_sdk.git)
 cd unitree_sdk2_python
+python -m venv .venv
+source .venv/bin/activate
 pip3 install -e .
 ```
 
