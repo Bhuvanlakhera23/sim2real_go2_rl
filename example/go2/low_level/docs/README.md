@@ -1,5 +1,4 @@
 
-```
 # Go2 Low-Level Control Stack (Simulation + Deployment)
 
 > ⚠️ **Research Sandbox — Use at Your Own Risk**  
@@ -42,7 +41,6 @@ This stack is intended for **researchers and engineers** working on sim-to-real 
 
 ## 3. Directory Structure (Relevant Subset)
 
-```
 
 low_level/
 ├── common/                  # Shared helpers (paths, constants, math)
@@ -59,8 +57,6 @@ low_level/
 ├── plots/
 │   ├── sim_op/              # Simulation logs & plots
 │   └── real_op/             # Hardware logs (if enabled)
-
-```
 
 ---
 
@@ -107,9 +103,7 @@ However:
 During both simulation and hardware deployment, the policy output is **reinterpreted** as:
 
 ```
-
 target_q = default_angles + action * action_scale
-
 ```
 
 Where:
@@ -125,9 +119,7 @@ This interpretation is a **deployment safety choice**, not something the policy 
 ---
 
 ## 6. Control Architecture (Sim & Real)
-
 ```
-
 Observations (48D)
 ↓
 RL Policy (MLP)
@@ -140,11 +132,11 @@ PD Controller
 ↓
 Motor Torques (implicit)
 
-```
 
 - No direct torque commands
 - PD loop exists **outside** the policy
 - PD gains are fully configurable via YAML
+```
 
 ---
 
@@ -152,21 +144,15 @@ Motor Torques (implicit)
 
 ### Primary Script
 ```
-
 simulate/mujoco/v1/sim_walk_v1.0.py
-
 ```
 
 ### Experimental (Logging Only)
-```
 
 simulate/mujoco/v1/sim_walk_v1.1.py
 
-```
-
 ### Run
-
-```bash
+```
 cd example/go2/low_level/simulate/mujoco/v1
 python3 sim_walk_v1.0.py go2_sim_v1.0.yaml
 ```
@@ -202,13 +188,13 @@ deploy/v1/dep_walk_v1.1.py
 
 Before deployment, identify the correct network interface:
 
-```bash
+```
 ifconfig
 ```
 
 Example (Ethernet-connected Go2):
 
-```text
+```
 eno1: inet 192.168.123.222  netmask 255.255.255.0
 ```
 
@@ -234,11 +220,10 @@ unless the robot is **fully harnessed and lifted**.
 
 ### 8.3 Run Deployment
 
-```bash
+```
 cd example/go2/low_level/deploy/v1
 python3 dep_walk_v1.0.py eno1 go2_dep_v1.0.yaml
 ```
-
 ---
 
 ### 8.4 Safe Shutdown Procedure
