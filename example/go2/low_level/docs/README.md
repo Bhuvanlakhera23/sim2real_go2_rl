@@ -26,6 +26,7 @@ This stack is intended for **researchers and engineers** working on sim-to-real 
 ### Supported
 - ✅ Unitree **Go2 only**
 - ✅ MuJoCo simulation
+- ✅ IsaacGym simulation
 - ✅ Joint position PD control
 - ✅ Pretrained locomotion policy (`policy_v1.pt`)
 - ✅ CSV logging for pose and gait inspection
@@ -40,8 +41,7 @@ This stack is intended for **researchers and engineers** working on sim-to-real 
 ---
 
 ## 3. Directory Structure (Relevant Subset)
-
-
+```
 low_level/
 ├── common/                  # Shared helpers (paths, constants, math)
 ├── config/
@@ -57,6 +57,7 @@ low_level/
 ├── plots/
 │   ├── sim_op/              # Simulation logs & plots
 │   └── real_op/             # Hardware logs (if enabled)
+```
 
 ---
 
@@ -131,12 +132,11 @@ Joint Target Positions
 PD Controller
 ↓
 Motor Torques (implicit)
-
+```
 
 - No direct torque commands
 - PD loop exists **outside** the policy
 - PD gains are fully configurable via YAML
-```
 
 ---
 
@@ -148,8 +148,9 @@ simulate/mujoco/v1/sim_walk_v1.0.py
 ```
 
 ### Experimental (Logging Only)
-
+```
 simulate/mujoco/v1/sim_walk_v1.1.py
+```
 
 ### Run
 ```
@@ -176,7 +177,7 @@ This behavior reflects **policy bias**, not a bug.
 deploy/v1/dep_walk_v1.0.py
 ```
 
-### Experimental (Logging Only)
+### Experimental (Added Logging)
 
 ```
 deploy/v1/dep_walk_v1.1.py
